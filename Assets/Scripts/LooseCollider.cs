@@ -7,7 +7,7 @@ public class LooseCollider : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D trigger) {
 		levelManager = GameObject.FindObjectOfType<LevelManager>();
-		levelManager.LoadLevel("Win Screen");
+		levelManager.LoadLevel("Loose Screen");
 	}
 	
 	void OnCollisionEnter2D (Collision2D collision) {

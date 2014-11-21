@@ -27,4 +27,12 @@ public class Ball : MonoBehaviour {
 			}
 		}
 	}
+	
+	void OnCollisionEnter2D (Collision2D collision) {
+		// Ball does not trigger sound when brick is destoyed.
+		// Not 100% sure why, possibly because brick isn't there.
+		if (hasStarted) {	
+			audio.Play();
+		}
+	}
 }

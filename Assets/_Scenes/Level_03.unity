@@ -576,6 +576,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: d9c60bca2116f4f14a1d6d35d8ed39bc,
         type: 3}
+    - target: {fileID: 21200000, guid: 1f6b11df373294dfca036689e4deca7d, type: 2}
+      propertyPath: m_Color.a
+      value: .490196079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f6b11df373294dfca036689e4deca7d, type: 2}
   m_RootGameObject: {fileID: 917080972}
@@ -3160,7 +3164,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: e065b9630f54346719b9d97e3dc3eb22, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .430000007
+  m_Volume: .529999971
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5720,7 +5724,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d9c60bca2116f4f14a1d6d35d8ed39bc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: .176470593}
+  m_Color: {r: 1, g: 1, b: 1, a: .490196079}
 --- !u!1 &1884069784
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,7 +74,7 @@ GameObject:
   - 61: {fileID: 6100004}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Loose Collider
+  m_Name: Lose Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

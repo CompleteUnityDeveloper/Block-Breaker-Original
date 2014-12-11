@@ -1300,9 +1300,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 348851679}
   - 212: {fileID: 348851678}
-  - 61: {fileID: 348851677}
   - 50: {fileID: 348851676}
   - 114: {fileID: 348851675}
+  - 60: {fileID: 348851677}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -1323,6 +1323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPlay: 0
+  minX: 1.17999995
+  maxX: 14.8000002
 --- !u!50 &348851676
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1339,18 +1341,24 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &348851677
-BoxCollider2D:
+--- !u!60 &348851677
+PolygonCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: ea448cd94239b43b5a5165a7455a9282,
+  m_PrefabParentObject: {fileID: 6000000, guid: ea448cd94239b43b5a5165a7455a9282,
     type: 2}
   m_PrefabInternal: {fileID: 1510153137}
   m_GameObject: {fileID: 348851674}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: .3203125}
-  m_Center: {x: 0, y: 0}
+  m_Poly:
+    m_Paths:
+    - - {x: -.5, y: .16015625}
+      - {x: -1.180686, y: -.161083132}
+      - {x: -.5, y: -.16015625}
+      - {x: .5, y: -.16015625}
+      - {x: 1.18555927, y: -.157130182}
+      - {x: .5, y: .16015625}
 --- !u!212 &348851678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1380,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: dda3ad249664643259ac96d4e19239a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 287c7c1fe2d754351937c0e1e49a35b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &348851679
 Transform:

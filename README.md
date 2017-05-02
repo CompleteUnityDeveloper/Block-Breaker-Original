@@ -312,6 +312,3 @@ OPTIONALLY converting your project to Unity 5, and sharing with Web GL.
 + Ask a friend to make levels.
 + Care with commercial music.
 + Share your creation with our fantastic [community](https://community.gamedev.tv/c/unity/S05-blockbreaker), or on our [Complete Unity Developer Facebook Group](https://www.facebook.com/groups/completeunitydeveloper/).
-
----
-Find out more about our [Complete Unity Developer Course](https://www.udemy.com/unitycourse?couponCode=GitHubDiscount).

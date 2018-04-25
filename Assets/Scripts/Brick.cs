@@ -3,70 +3,79 @@ using System.Collections;
 
 public class Brick : MonoBehaviour
 {
-	public AudioClip crack;
-	public Sprite[] hitSprites;
-	public static int breakableCount = 0;
-	public GameObject smoke;
+    // config parameters
+    // todo consdier SO
+	[SerializeField] AudioClip crack;
+    [SerializeField] Sprite[] hitSprites;
+    [SerializeField] GameObject smokeParticles;
 
-	private int timesHit;
-	private LevelLoader levelManager;
-	private bool isBreakable;
+    // state variables
+	int timesHit;
+
+    // cached references
+    Level level;
 	
-	// Use this for initialization
-	void Start () {
-		isBreakable = (this.tag == "Breakable");
+	void Start ()
+    {
+        level = FindObjectOfType<Level>();
 		// Keep track of breakable bricks
-		if (isBreakable) {
-			breakableCount++;
+        if (tag == "Breakable")
+        {
+            level.RegisterBreakableBrick();
 		}
 		
 		timesHit = 0;
-		levelManager = GameObject.FindObjectOfType<LevelLoader>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
-	
-	void OnCollisionEnter2D (Collision2D col) {
-		AudioSource.PlayClipAtPoint (crack, transform.position, 0.8f);
-		if (isBreakable) {
-			HandleHits();
+    void OnCollisionEnter2D()
+    {
+		AudioSource.PlayClipAtPoint(crack, transform.position); // todo need to tweak volume?
+        if (tag == "Breakable")
+        {
+            HandleHit();
 		}
 	}
 	
-	void HandleHits () {
-		timesHit++;
-		int maxHits = hitSprites.Length + 1;
-		if (timesHit >= maxHits) {
-			breakableCount--;
-			levelManager.BrickDestoyed();
-			PuffSmoke();
-			Destroy(gameObject);
-		} else {
+	void HandleHit()
+    {
+        int maxHits = hitSprites.Length + 1;
+        timesHit++;
+		if (timesHit >= maxHits)
+        {
+            DestroyBrick();
+        }
+        else
+        {
 			LoadSprites();
 		}
 	}
-	
-	void PuffSmoke () {
-		GameObject smokePuff = Instantiate (smoke, transform.position, Quaternion.identity) as GameObject;
+
+    private void DestroyBrick()
+    {
+        level.BrickDestoyed();
+        PuffSmoke();
+        Destroy(gameObject);
+    }
+
+    void PuffSmoke ()
+    {
+		GameObject smokePuff = Instantiate (smokeParticles, transform.position, Quaternion.identity) as GameObject;
         // todo parent game object
 		smokePuff.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<SpriteRenderer>().color;
 	}
 	
-	void LoadSprites () {
+	void LoadSprites ()
+    {
 		int spriteIndex = timesHit - 1;
 		
-		if (hitSprites[spriteIndex] != null) {
-			this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
-		} else {
+		if (hitSprites[spriteIndex] != null)
+        {
+			GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+		}
+        else
+        {
 			Debug.LogError ("Brick sprite missing");
 		}
-	}
-	
-	// TODO Remove this method once we can actually win!
-	void SimulateWin () {
-		levelManager.LoadNextLevel();
 	}
 }

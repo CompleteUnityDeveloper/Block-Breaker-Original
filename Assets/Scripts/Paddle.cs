@@ -4,30 +4,27 @@ using System.Collections;
 public class Paddle : MonoBehaviour {
 
     // config params
-    [SerializeField] bool autoLaunch = false;
 	[SerializeField] float minX, maxX;
     [SerializeField] float paddleXOffset = 0.5f;
-    [SerializeField] float screenWidthInBlocks = 16f;
-
-    // state variables
-    Vector2 paddlePos;
+    [SerializeField] float screenWidthInBlocks = 16f; // todo consider calculating
 
     // Update is called once per frame
     void Update()
     {
-        paddlePos = new Vector2(paddleXOffset, transform.position.y);
+        Vector2 paddlePos = new Vector2(paddleXOffset, transform.position.y);
+        paddlePos.x = Mathf.Clamp(GetXPos(), minX, maxX);
+        transform.position = paddlePos;
+    }
 
-        float rawXPos;
-
+    private float GetXPos()
+    {
         if (FindObjectOfType<Game>().IsAutoPlayEnabled())
         {
-            rawXPos = FindObjectOfType<Ball>().transform.position.x;
+            return FindObjectOfType<Ball>().transform.position.x;
         }
         else
         {
-            rawXPos = Input.mousePosition.x / Screen.width * screenWidthInBlocks;
+            return Input.mousePosition.x / Screen.width * screenWidthInBlocks;
         }
-        paddlePos.x = Mathf.Clamp(rawXPos, minX, maxX);
-        transform.position = paddlePos;
     }
 }

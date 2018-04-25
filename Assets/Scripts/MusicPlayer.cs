@@ -1,23 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MusicPlayer : MonoBehaviour {
-	static MusicPlayer instance = null;
-	
-	// Use this for initialization
-	void Start () {
-		if (instance != null) {
-			Destroy (gameObject);
-			print ("Duplicate music player self-destructing!");
-		} else {
-			instance = this;
-			GameObject.DontDestroyOnLoad(gameObject);
-		}
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+public class MusicPlayer : MonoBehaviour
+{	
+	void Start ()
+    {
+        int musicPlayerCount = FindObjectsOfType<MusicPlayer>().Length;
+        if (musicPlayerCount > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
 	}
 }

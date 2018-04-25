@@ -9,7 +9,7 @@ public class Brick : MonoBehaviour
 	public GameObject smoke;
 
 	private int timesHit;
-	private LevelManager levelManager;
+	private LevelLoader levelManager;
 	private bool isBreakable;
 	
 	// Use this for initialization
@@ -21,7 +21,7 @@ public class Brick : MonoBehaviour
 		}
 		
 		timesHit = 0;
-		levelManager = GameObject.FindObjectOfType<LevelManager>();
+		levelManager = GameObject.FindObjectOfType<LevelLoader>();
 	}
 	
 	// Update is called once per frame

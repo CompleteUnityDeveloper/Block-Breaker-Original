@@ -2,12 +2,11 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class LevelManager : MonoBehaviour {
-
+public class LevelLoader : MonoBehaviour
+{
 	public void LoadLevel(string name)
     {
-		Debug.Log ("New Level load: " + name);
-		Brick.breakableCount = 0;
+		Brick.breakableCount = 0; // todo remove static reference
         SceneManager.LoadScene(name);
 	}
 
@@ -20,12 +19,15 @@ public class LevelManager : MonoBehaviour {
 	public void LoadNextLevel()
     {
 		Brick.breakableCount = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        print(currentSceneIndex);
+        SceneManager.LoadScene(currentSceneIndex + 1);
 	}
 	
 	public void BrickDestoyed()
     {
-		if (Brick.breakableCount <= 0) {
+		if (Brick.breakableCount <= 0)
+        {
 			LoadNextLevel();
 		}
 	}

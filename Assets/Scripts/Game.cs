@@ -10,9 +10,10 @@ public class Game : MonoBehaviour
 
     // state variables
 
+
     private void Start()
     {
-        int gameCount = FindObjectsOfType<MusicPlayer>().Length;
+        int gameCount = FindObjectsOfType<Game>().Length;
         if (gameCount > 1)
         {
             Destroy(gameObject);

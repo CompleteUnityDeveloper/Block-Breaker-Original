@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Ball : MonoBehaviour
 {
+    // config params
     [SerializeField] Vector2 launchVelocity = new Vector2(2f, 10f);
     [Range(0,1f)][SerializeField] float randomFactor = 0.2f;
 
+    // state variables
 	Paddle paddle;
 	bool hasStarted = false;
 	Vector3 paddleToBallVector;

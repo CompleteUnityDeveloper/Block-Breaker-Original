@@ -5,7 +5,7 @@ using System.Collections;
 public class Level : MonoBehaviour
 {
     // state variables
-    [SerializeField] int breakableBricks = 0; // todo make private
+    [SerializeField] int breakableBricks = 0;
 
     // todo make static and generic
     void Start()
@@ -23,7 +23,7 @@ public class Level : MonoBehaviour
 
     public void LoadLevel(string name)
     {
-        breakableBricks = 0; // todo remove static reference
+        breakableBricks = 0;
         SceneManager.LoadScene(name);
     }
 	

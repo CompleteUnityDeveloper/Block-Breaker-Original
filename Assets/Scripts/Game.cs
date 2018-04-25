@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     [Range(.1f, 10f)][SerializeField] float timeScale = 1f;
 
     // state variables
-
+    // todo consdier score
 
     private void Start()
     {

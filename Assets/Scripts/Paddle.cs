@@ -6,7 +6,7 @@ public class Paddle : MonoBehaviour {
     // config params
 	[SerializeField] float minX, maxX;
     [SerializeField] float paddleXOffset = 0.5f;
-    [SerializeField] float screenWidthInBlocks = 16f; // todo consider calculating
+    [SerializeField] float screenWidthInBlocks = 16f;
 
     // Update is called once per frame
     void Update()

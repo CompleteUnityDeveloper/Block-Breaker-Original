@@ -18,19 +18,21 @@ public class Brick : MonoBehaviour
 	void Start ()
     {
         level = FindObjectOfType<Level>();
-		// Keep track of breakable bricks
+        CountBreakableBricks();
+        timesHit = 0;
+    }
+
+    private void CountBreakableBricks()
+    {
         if (tag == "Breakable")
         {
             level.RegisterBreakableBrick();
-		}
-		
-		timesHit = 0;
-	}
-	
-	
+        }
+    }
+
     void OnCollisionEnter2D()
     {
-		AudioSource.PlayClipAtPoint(crack, transform.position); // todo need to tweak volume?
+		AudioSource.PlayClipAtPoint(crack, transform.position);
         if (tag == "Breakable")
         {
             HandleHit();
@@ -53,8 +55,8 @@ public class Brick : MonoBehaviour
 
     private void DestroyBrick()
     {
-        level.BrickDestoyed();
         PuffSmoke();
+        level.BrickDestoyed();
         Destroy(gameObject);
     }
 

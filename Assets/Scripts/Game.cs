@@ -6,7 +6,7 @@ public class Game : MonoBehaviour
 {
 	// configuration parameters
     [SerializeField] bool isAutoPlayEnabled = false;
-    [Range(.1f, 10f)][SerializeField] float timeScale = 1f;
+    [Range(.1f, 10f)] [SerializeField] float timeScale = 1f;
 
     // state variables
     // todo consdier score

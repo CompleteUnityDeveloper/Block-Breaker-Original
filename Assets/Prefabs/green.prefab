@@ -71,6 +71,8 @@ MonoBehaviour:
   hitSprites:
   - {fileID: 21300008, guid: dda3ad249664643259ac96d4e19239a7, type: 3}
   smokeParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
+  particleParent: {fileID: 4965194452930490, guid: d7d03a9adff614118bef0826894a3695,
+    type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

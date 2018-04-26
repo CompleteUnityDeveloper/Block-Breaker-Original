@@ -8,6 +8,7 @@ public class Brick : MonoBehaviour
 	[SerializeField] AudioClip crack;
     [SerializeField] Sprite[] hitSprites;
     [SerializeField] GameObject smokeParticles;
+    [SerializeField] string runtimeParentName = "Runtime Objects";
 
     // state variables
 	int timesHit;
@@ -39,7 +40,7 @@ public class Brick : MonoBehaviour
 		}
 	}
 	
-	void HandleHit()
+	private void HandleHit()
     {
         int maxHits = hitSprites.Length + 1;
         timesHit++;
@@ -60,12 +61,19 @@ public class Brick : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void PuffSmoke ()
+    private void PuffSmoke ()
     {
 		GameObject smokePuff = Instantiate (smokeParticles, transform.position, Quaternion.identity) as GameObject;
-        // todo parent game object
-		smokePuff.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<SpriteRenderer>().color;
+        Parent(smokePuff.transform);
+        var mainParticleSystem = smokePuff.GetComponent<ParticleSystem>().main;
+        mainParticleSystem.startColor = gameObject.GetComponent<SpriteRenderer>().color;
 	}
+
+    private void Parent(Transform transformToParent)
+    {
+        var parent = GameObject.Find(runtimeParentName).transform;
+        transformToParent.parent = parent;
+    }
 	
 	void LoadSprites ()
     {

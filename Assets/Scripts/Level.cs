@@ -7,7 +7,6 @@ public class Level : MonoBehaviour
     // state variables
     [SerializeField] int breakableBricks = 0;
 
-    // todo make static and generic
     void Start()
     {
         int gameCount = FindObjectsOfType<Level>().Length;

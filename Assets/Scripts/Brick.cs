@@ -4,7 +4,6 @@ using System.Collections;
 public class Brick : MonoBehaviour
 {
     // config parameters
-    // todo consdier SO
 	[SerializeField] AudioClip crack;
     [SerializeField] Sprite[] hitSprites;
     [SerializeField] GameObject smokeParticles;

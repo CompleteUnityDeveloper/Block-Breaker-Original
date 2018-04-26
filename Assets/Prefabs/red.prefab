@@ -68,9 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crack: {fileID: 8300000, guid: b1fe5ec1943064e73be3b0d9c58a67f1, type: 3}
-  hitSprites:
-  - {fileID: 21300008, guid: dda3ad249664643259ac96d4e19239a7, type: 3}
-  - {fileID: 21300010, guid: dda3ad249664643259ac96d4e19239a7, type: 3}
+  hitSprites: []
   smokeParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
   runtimeParentName: Runtime Objects
 --- !u!212 &21200000

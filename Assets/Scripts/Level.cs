@@ -42,6 +42,7 @@ public class Level : MonoBehaviour
 
 	public void BrickDestoyed()
     {
+        FindObjectOfType<Game>().ScorePoint();
         breakableBricks--;
         if (breakableBricks <= 0)
         {

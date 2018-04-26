@@ -70,6 +70,7 @@ MonoBehaviour:
   crack: {fileID: 8300000, guid: b1fe5ec1943064e73be3b0d9c58a67f1, type: 3}
   hitSprites: []
   smokeParticles: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
+  runtimeParentName: Runtime Objects
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

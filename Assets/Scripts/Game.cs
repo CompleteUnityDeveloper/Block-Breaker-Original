@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     [Range(.1f, 10f)] [SerializeField] float timeScale = 1f;
 
     // state variables
-    // todo consdier score
+    [SerializeField] int score = 0; // challenge to drive UI after next section
 
     private void Start()
     {
@@ -24,14 +24,20 @@ public class Game : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        Time.timeScale = timeScale;
+    }
+
     public bool IsAutoPlayEnabled()
     {
         return isAutoPlayEnabled;
     }
 
-	// Update is called once per frame
-	void Update ()
-	{
-        Time.timeScale = timeScale;
-	}
+    public void ScorePoint()
+    {
+        score++;
+    }
+
 }
